@@ -18,6 +18,11 @@ export default function TextForm(props){
         console.log("on change");
         setText(event.target.value);
     }
+    const handleCopy=()=>{
+        var text=document.getElementById("myBox");
+        text.focus();
+        navigator.clipboard.writeText(text.value);
+    }
     const [text, setText]=useState(''); // Declare a new state variable, which we'll call "count"
     // hooks can help to perform operation without creating a class
     // we can not change the text value so we use setText() function 
@@ -34,6 +39,7 @@ export default function TextForm(props){
                 <div>
                     <button className="btn btn-primary" onClick={handleUPClick}>Convert To Upper Case</button>
                     <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert To Upper Case</button>
+                    <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy To Clipboard</button>
                 </div>
             </div>
             <div className="container m-3">
