@@ -3,6 +3,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Body from './components/Body';
 import TextForm from './components/TextForm'
+import About from './components/About';
+
 
 
 // inside return block code is called JSX we can write js code inside html with tag {}
@@ -15,6 +17,7 @@ function App() {
     {/* <Body />default component */}
     <div className="container">
       <TextForm  heading="Enter Your comment here....."/>
+      {/* <About /> */}
     </div>
     
     </>
