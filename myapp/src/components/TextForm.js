@@ -30,11 +30,11 @@ export default function TextForm(props){
     // setText("new text"); right way to change the state
     return(
         <>
-            <div className='container'>
+            <div className='container' style={{color:props.mode==='dark'?'white':'black'}}>
                 <h1>{props.heading}</h1>
               
                 <div className="mb-3">
-                <textarea className="form-control" id="myBox" value={text} onChange={handleOnChange} placeholder='Enter text here....' rows="8"></textarea>
+                <textarea className="form-control" id="myBox" value={text} style={{backgroundColor:props.mode==='dark'?'light':'white',color:props.mode==='dark'?'black':'black'}} onChange={handleOnChange} placeholder='Enter text here....' rows="8"></textarea>
                 </div>
                 <div>
                     <button className="btn btn-primary" onClick={handleUPClick}>Convert To Upper Case</button>
@@ -42,13 +42,13 @@ export default function TextForm(props){
                     <button className="btn btn-primary mx-2" onClick={handleCopy}>Copy To Clipboard</button>
                 </div>
             </div>
-            <div className="container m-3">
+            <div className="container m-3" style={{color:props.mode==='dark'?'white':'black'}}>
                 <h2>Text Your Summery</h2>
                 <p> {text.split(" ").length} Word  and {text.length} Characters</p>
                 <p>{0.008*text.split(" ").length} Minute required to read</p> 
                 {/* 1/125 minute/no of word */}
                 <h3>Preview</h3>
-                <p>{text}</p>
+                <p>{text.length>0?text:'Enter something to preview it here'}</p>
             </div>
         </>
     )
