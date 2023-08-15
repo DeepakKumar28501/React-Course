@@ -6,12 +6,15 @@ import react ,{useState} from 'react';// useState is Hook
 
 export default function TextForm(props){
     const handleUPClick=()=>{
-        console.log("Uppercase was clicked");
+        // console.log("Uppercase was clicked");
         // setText("You have clicked on handleUpclick");
         setText(text.toUpperCase());
+        props.showalert("Converted to Uppercase","success");
     }
     const handleLoClick=()=>{
-        setText(text.toLowerCase())
+        setText(text.toLowerCase());
+        props.showalert("Converted to Lowercase","success");
+
     }
 
     const handleOnChange=(event)=>{
@@ -22,6 +25,8 @@ export default function TextForm(props){
         var text=document.getElementById("myBox");
         text.focus();
         navigator.clipboard.writeText(text.value);
+        props.showalert("Text is Copied...","success");
+
     }
     const [text, setText]=useState(''); // Declare a new state variable, which we'll call "count"
     // hooks can help to perform operation without creating a class
